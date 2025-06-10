@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2004 ~ 2024 西瓜年均價格表</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>2004 ~ 2024 西瓜年均價格表</h1>
+    <div class="form-row" style="margin-bottom: 16px; display: flex;justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <label for="start-year">起始年份：</label>
+        <input type="number" id="start-year" name="start-year" min="2004" max="2024" step="1" placeholder="起始年份">
+        <label for="end-year">結束年份：</label>
+        <input type="number" id="end-year" name="end-year" min="2004" max="2024" step="1" placeholder="結束年份">
+        <label for="price">商品價格：</label>
+        <input type="number" id="price" name="price" step="0.01" min="0">
+        <label for="type-selector">西瓜種類：</label>
+        <select id="type-selector" name="type-selector">
+            <option value="">--</option>
+            <option value="西瓜(大粒)">大粒</option>
+            <option value="西瓜(小粒)">小粒</option>
+            <option value="西瓜(無子)">無子</option>
+        </select>
+        <button id="search-btn">查詢</button>
+    </div>
+
+    <!-- 新增切換按鈕 -->
+    <div class="view-toggle">
+        <button id="chart-view-btn" class="active">趨勢圖</button>
+        <button id="table-view-btn">表格</button>
+        <button id="CPI">通膨率</button>
+        <button id="input-data-btn">新增資料</button>
+    </div>
+
+    <!-- 圖表容器 -->
+    <div id="chart-container" class="view-container active" style="width: 100%; max-width: 1200px; margin: 0 auto 30px auto;">
+        <div style="position:relative; width:100%; height:60vw; max-height:700px; min-height:400px;">
+            <canvas id="priceChart"></canvas>
+        </div>
+    </div>
+
+    <!-- 表格容器 -->
+    <div id="table-container" class="view-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>年份</th>
+                    <th>西瓜年均價格 (元/公斤)</th>
+                    <th>西瓜種類</th>
+                </tr>
+            </thead>
+            <tbody id="data-table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="cpi-chart-container" class="view-container" style="width: 100%; max-width: 1200px; margin: 0 auto 30px auto;">
+        <div style="position:relative; width:100%; height:60vw; max-height:700px; min-height:400px;">
+            <canvas id="cpiChart"></canvas>
+        </div>
+    </div>
+
+    <!-- 新增資料輸入表單（預設隱藏） -->
+    <div id="input-form-container" class="view-container" style="display: none; text-align: center; margin-top: 30px;">
+        <form id="input-form" >
+            <h2 style="margin-bottom: 24px; color: #2d7a4a; font-weight: bold; letter-spacing: 2px;">新增西瓜價格資料</h2>
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+                <div style="display: flex;align-items: center; gap: 10px;">
+                    <label for="input-year" style="width: 60px; text-align: right;">年份</label>
+                    <select id="input-year" name="input-year" class="select-input"></select>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label for="input-price" style="width: 60px; text-align: right;">價格</label>
+                    <input type="number" id="input-price" name="input-price" step="0.01" min="0" required class="select-input">
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label for="input-type" style="width: 60px; text-align: right;">名稱</label>
+                    <select id="input-type" name="input-type" required class="select-input">
+                        <option value="">--</option>
+                        <option value="西瓜(大粒)">大粒</option>
+                        <option value="西瓜(小粒)">小粒</option>
+                        <option value="西瓜(無子)">無子</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" id="submit-input-btn" class="send-btn">送出</button>
+        </form>
+    </div>
+</body>
+<script src="javascripts/index.js"></script>
+</html>
+
+
