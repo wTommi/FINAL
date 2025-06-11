@@ -8,7 +8,11 @@
 ### ✅ 本次新增重點：
 
 - 通膨率趨勢圖
+- ![image](https://github.com/user-attachments/assets/dbfb6a29-c95e-4aab-b38a-136a4c376d20)
+
 - 新增價格輸入表單
+- ![image](https://github.com/user-attachments/assets/9877fe5d-159f-4418-8dde-1f357869451a)
+
 
 ## 🎯 計畫目的
 
